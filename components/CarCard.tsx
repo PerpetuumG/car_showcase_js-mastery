@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { CarProps } from '@/types';
-import { calculateCarRent } from '@/utils';
+import { calculateCarRent, generateCarImageUrl } from '@/utils';
 import Image from 'next/image';
 import { CarDetails, CustomButton } from '@/components/index';
 
@@ -32,7 +32,13 @@ const CarCard = ({ car }: CarCardProps) => {
       </p>
 
       <div className={'relative w-full h-40 my-3 object-contain'}>
-        <Image className={'object-contain'} src={'/hero.png'} alt={'car model'} fill priority />
+        <Image
+          className={'object-contain'}
+          src={generateCarImageUrl(car)}
+          alt={'car model'}
+          fill
+          priority
+        />
       </div>
 
       <div className={'relative flex w-full mt-2'}>
